@@ -1,0 +1,53 @@
+workflows:
+  doss-ios-testflight-workflow:
+    name: DOSS Rider iOS Build and Publish to TestFlight
+    max_build_duration: 120
+    instance_type: mac_mini_m2
+
+    integrations:
+      # تأكد أن هذا الاسم هو نفس اسم الـ integration المضاف في حسابك على كودماجيك
+      app_store_connect: noourway
+
+    environment:
+      flutter: stable
+      xcode: latest
+      cocoapods: default
+
+      ios_signing:
+        provisioning_profiles:
+          - doss_Manual_Profile
+        certificates:
+          - ios_cert_manual # تأكد أن هذا هو نفس "الاسم المستعار" (Alias) للشهادة المرفوعة في كودماجيك
+
+    scripts:
+      - name: Set iOS deployment target
+        script: |
+          sed -i '' 's/IPHONEOS_DEPLOYMENT_TARGET = [0-9.]*;/IPHONEOS_DEPLOYMENT_TARGET = 12.0;/g' ios/Runner.xcodeproj/project.pbxproj
+
+      - name: Clean and Get Dependencies
+        script: |
+          flutter clean
+          flutter pub get  # تم استخدام get بدلاً من upgrade لضمان استقرار الحزم المحلية (مثل doss_core)
+          cd ios
+          rm -rf Pods          # مسح مجلد الـ Pods القديم
+          rm -rf Podfile.lock  # مسح ملف القفل القديم
+          pod repo update      # تحديث مستودع الـ Pods
+          pod install          # تثبيت الـ Pods من جديد
+
+      - name: Apply Vault Profiles
+        script: xcode-project use-profiles
+
+      - name: Build IPA
+        script: |
+          flutter build ipa --release --export-options-plist=$HOME/export_options.plist
+
+    artifacts:
+      - build/ios/ipa/*.ipa
+
+    publishing:
+      app_store_connect:
+        auth: integration
+        submit_to_testflight: true
+      email:
+        recipients:
+          - codexus.eg@gmail.com

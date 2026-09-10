@@ -7,32 +7,33 @@ class AppTheme {
   AppTheme._();
 
   // ─── Brand Colors ──────────────────────────────────────────────────────────
-  static const Color brandCyan    = Color(0xFF06F6FF); // Brand Cyan
-  static const Color brandBlue    = Color(0xFF00A3E0); // Brand Blue
-  static const Color navyDeep     = Color(0xFF08131F); // Navy Deep
-  static const Color primaryDark  = Color(0xFF000000); // App background
-  static const Color primaryMid   = Color(0xFF0B0F14); // Elevated navy-black
+  static const Color brandCyan = Color(0xFF06F6FF); // Brand Cyan
+  static const Color brandBlue = Color(0xFF00A3E0); // Brand Blue
+  static const Color navyDeep = Color(0xFF08131F); // Navy Deep
+  static const Color primaryDark = Color(0xFF000000); // App background
+  static const Color primaryMid = Color(0xFF0B0F14); // Elevated navy-black
   static const Color primaryLight = Color(0xFF141A21);
-  static const Color primary      = brandCyan;         // ← identity primary
-  static const Color primaryLight2= Color(0xFF5FF9FF);
-  static const Color accent       = brandBlue;         // gradients / secondary
-  static const Color accentDark   = Color(0xFF0077A8);
-  static const Color success      = Color(0xFF22C55E);
-  static const Color error        = Color(0xFFEF4444);
-  static const Color warning      = Color(0xFFF59E0B);
-  static const Color surface      = Color(0xFF10161D);
+  static const Color primary = brandCyan; // ← identity primary
+  static const Color primaryLight2 = Color(0xFF5FF9FF);
+  static const Color accent = brandBlue; // gradients / secondary
+  static const Color accentDark = Color(0xFF0077A8);
+  static const Color success = Color(0xFF22C55E);
+  static const Color error = Color(0xFFEF4444);
+  static const Color warning = Color(0xFFF59E0B);
+  static const Color surface = Color(0xFF10161D);
   static const Color surfaceLight = Color(0xFF1B242E);
-  static const Color card         = Color(0xFF121920);
-  static const Color textPrimary  = Color(0xFFFFFFFF);
-  static const Color textSecondary= Color(0xFFA8B3BD);
-  static const Color textMuted    = Color(0xFF5F6C79);
-  static const Color divider      = Color(0xFF1E2831);
+  static const Color card = Color(0xFF121920);
+  static const Color textPrimary = Color(0xFFFFFFFF);
+  static const Color textSecondary = Color(0xFFA8B3BD);
+  static const Color textMuted = Color(0xFF5F6C79);
+  static const Color divider = Color(0xFF1E2831);
+
   /// Text/icon color that sits ON a cyan surface (cyan is light → needs black)
-  static const Color onBrand      = Color(0xFF000000);
+  static const Color onBrand = Color(0xFF000000);
 
   // ─── Logo gradient (blue → cyan) ───────────────────────────────────────────
-  static const Color logoStart    = brandBlue;
-  static const Color logoEnd      = brandCyan;
+  static const Color logoStart = brandBlue;
+  static const Color logoEnd = brandCyan;
   static const LinearGradient brandGradient = LinearGradient(
     colors: [brandBlue, brandCyan],
     begin: Alignment.topLeft,
@@ -61,7 +62,8 @@ class AppTheme {
     IconData? prefixIcon,
     Widget? suffixIcon,
     String? errorText,
-  }) => InputDecoration(
+  }) =>
+      InputDecoration(
         labelText: label,
         hintText: hint,
         prefixIcon: prefixIcon != null ? Icon(prefixIcon) : null,
@@ -120,7 +122,7 @@ class AppTheme {
             letterSpacing: 0.2,
           ),
         ),
-        cardTheme: CardTheme(
+        cardTheme: CardThemeData(
           color: card,
           elevation: 0,
           shape: RoundedRectangleBorder(
@@ -135,12 +137,10 @@ class AppTheme {
             disabledBackgroundColor: surface,
             disabledForegroundColor: textMuted,
             minimumSize: const Size(double.infinity, 54),
-            shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(16)),
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
             textStyle: const TextStyle(
-                fontSize: 15,
-                fontWeight: FontWeight.w800,
-                letterSpacing: 0.3),
+                fontSize: 15, fontWeight: FontWeight.w800, letterSpacing: 0.3),
             elevation: 0,
           ),
         ),
@@ -149,17 +149,17 @@ class AppTheme {
             foregroundColor: brandCyan,
             side: const BorderSide(color: brandCyan, width: 1.5),
             minimumSize: const Size(double.infinity, 54),
-            shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(16)),
-            textStyle: const TextStyle(
-                fontSize: 15, fontWeight: FontWeight.w700),
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+            textStyle:
+                const TextStyle(fontSize: 15, fontWeight: FontWeight.w700),
           ),
         ),
         textButtonTheme: TextButtonThemeData(
           style: TextButton.styleFrom(
             foregroundColor: brandCyan,
-            textStyle: const TextStyle(
-                fontSize: 14, fontWeight: FontWeight.w600),
+            textStyle:
+                const TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
           ),
         ),
         inputDecorationTheme: InputDecorationTheme(
@@ -187,8 +187,8 @@ class AppTheme {
           contentPadding:
               const EdgeInsets.symmetric(horizontal: 18, vertical: 16),
         ),
-        dividerTheme: const DividerThemeData(
-            color: divider, thickness: 1, space: 1),
+        dividerTheme:
+            const DividerThemeData(color: divider, thickness: 1, space: 1),
         bottomNavigationBarTheme: const BottomNavigationBarThemeData(
           backgroundColor: primaryMid,
           selectedItemColor: brandCyan,
@@ -211,23 +211,33 @@ class AppTheme {
           backgroundColor: primaryMid,
           contentTextStyle: const TextStyle(color: textPrimary),
           behavior: SnackBarBehavior.floating,
-          shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(12)),
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
         ),
         textTheme: const TextTheme(
-          displayLarge:  TextStyle(color: textPrimary, fontWeight: FontWeight.w800),
-          displayMedium: TextStyle(color: textPrimary, fontWeight: FontWeight.w700),
-          displaySmall:  TextStyle(color: textPrimary, fontWeight: FontWeight.w700),
-          headlineLarge: TextStyle(color: textPrimary, fontWeight: FontWeight.w700),
-          headlineMedium:TextStyle(color: textPrimary, fontWeight: FontWeight.w600),
-          headlineSmall: TextStyle(color: textPrimary, fontWeight: FontWeight.w600),
-          titleLarge:    TextStyle(color: textPrimary, fontWeight: FontWeight.w600),
-          titleMedium:   TextStyle(color: textPrimary, fontWeight: FontWeight.w500),
-          titleSmall:    TextStyle(color: textSecondary,fontWeight: FontWeight.w500),
-          bodyLarge:     TextStyle(color: textPrimary),
-          bodyMedium:    TextStyle(color: textSecondary),
-          bodySmall:     TextStyle(color: textMuted),
-          labelLarge:    TextStyle(color: textPrimary, fontWeight: FontWeight.w600),
+          displayLarge:
+              TextStyle(color: textPrimary, fontWeight: FontWeight.w800),
+          displayMedium:
+              TextStyle(color: textPrimary, fontWeight: FontWeight.w700),
+          displaySmall:
+              TextStyle(color: textPrimary, fontWeight: FontWeight.w700),
+          headlineLarge:
+              TextStyle(color: textPrimary, fontWeight: FontWeight.w700),
+          headlineMedium:
+              TextStyle(color: textPrimary, fontWeight: FontWeight.w600),
+          headlineSmall:
+              TextStyle(color: textPrimary, fontWeight: FontWeight.w600),
+          titleLarge:
+              TextStyle(color: textPrimary, fontWeight: FontWeight.w600),
+          titleMedium:
+              TextStyle(color: textPrimary, fontWeight: FontWeight.w500),
+          titleSmall:
+              TextStyle(color: textSecondary, fontWeight: FontWeight.w500),
+          bodyLarge: TextStyle(color: textPrimary),
+          bodyMedium: TextStyle(color: textSecondary),
+          bodySmall: TextStyle(color: textMuted),
+          labelLarge:
+              TextStyle(color: textPrimary, fontWeight: FontWeight.w600),
         ),
         iconTheme: const IconThemeData(color: textSecondary),
         chipTheme: ChipThemeData(
@@ -235,8 +245,8 @@ class AppTheme {
           selectedColor: brandCyan.withOpacity(0.18),
           labelStyle: const TextStyle(color: textPrimary, fontSize: 13),
           side: const BorderSide(color: surfaceLight),
-          shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(10)),
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
         ),
       );
 }
