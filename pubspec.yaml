@@ -1,0 +1,49 @@
+name: doss_rider
+description: DOSS Rider App — Premium rides across Egypt.
+version: 1.0.0+1
+publish_to: "none"
+
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_bloc: ^8.1.4
+  equatable: ^2.0.5
+  go_router: ^13.2.0
+  google_maps_flutter: ^2.6.0
+  geolocator: ^12.0.0
+  dio: ^5.4.0
+  flutter_secure_storage: ^9.0.0
+  socket_io_client: ^2.0.3+1
+  logger: ^2.0.2
+  image_picker: ^1.0.7
+  url_launcher: ^6.2.5
+  provider: ^6.1.2
+  shared_preferences: ^2.2.2
+  record: ^5.1.0
+  just_audio: ^0.9.36
+  path_provider: ^2.1.2
+  http: ^1.2.0
+  http_parser: ^4.0.2
+  sensors_plus: ^4.0.2
+  doss_core:
+    path: doss_core
+
+# record_linux 0.7.2 (pulled in transitively by record 5.2.1) does not implement
+# record_platform_interface 1.3.0's abstract startStream(), which breaks the
+# kernel snapshot. 1.1.1 is the first linux impl that implements it while still
+# accepting record_platform_interface ^1.0.2. Required to compile.
+dependency_overrides:
+  record_linux: 1.1.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/

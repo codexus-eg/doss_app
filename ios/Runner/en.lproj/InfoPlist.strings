@@ -1,0 +1,7 @@
+/* DOSS — English permission prompts (base language) */
+
+"CFBundleDisplayName" = "DOSS";
+"NSCameraUsageDescription" = "DOSS uses the camera so you can take the selfie and photograph the national ID required to verify your identity.";
+"NSPhotoLibraryUsageDescription" = "DOSS needs access to your photo library so you can upload an existing photo of your national ID for identity verification.";
+"NSMicrophoneUsageDescription" = "DOSS uses the microphone so you can record and send voice messages to your driver.";
+"NSLocationWhenInUseUsageDescription" = "DOSS uses your location to set your pickup point, show nearby drivers and follow your trip on the map.";

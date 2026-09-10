@@ -1,0 +1,7 @@
+/* DOSS — Arabic permission prompts */
+
+"CFBundleDisplayName" = "دوس";
+"NSCameraUsageDescription" = "يستخدم تطبيق DOSS الكاميرا لالتقاط صورتك الشخصية وتصوير بطاقة الرقم القومي المطلوبة للتحقق من هويتك.";
+"NSPhotoLibraryUsageDescription" = "يحتاج تطبيق DOSS إلى الوصول إلى مكتبة الصور لتتمكن من رفع صورة موجودة لبطاقة الرقم القومي للتحقق من هويتك.";
+"NSMicrophoneUsageDescription" = "يستخدم تطبيق DOSS الميكروفون لتتمكن من تسجيل وإرسال رسائل صوتية إلى السائق.";
+"NSLocationWhenInUseUsageDescription" = "يستخدم تطبيق DOSS موقعك لتحديد نقطة الانطلاق وعرض السائقين القريبين ومتابعة رحلتك على الخريطة.";
